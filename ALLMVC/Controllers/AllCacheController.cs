@@ -9,33 +9,40 @@ namespace ALLMVC.Controllers
 {
     public class AllCacheController : Controller
     {
+        private readonly IMemoryCache _cache;
         string key = "IDGKey";
         string obj;
-        private readonly IMemoryCache _memoryCache;
 
-        public AllCacheController(IMemoryCache memoryCache)
+        public AllCacheController(IMemoryCache Cache)
         {
-            _memoryCache = memoryCache;
+            _cache = Cache;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+
+        [Route("AllCache/SetCacheData")]
+        public IActionResult SetCacheData()
         {
-            if (!_memoryCache.TryGetValue<string>(key, out obj))
+            var Time = DateTime.Now.ToLocalTime().ToString();
+            MemoryCacheEntryOptions options = new MemoryCacheEntryOptions()
             {
-                obj = DateTime.Now.ToString();
-                _memoryCache.Set<string>(key, obj);
-            }
-            return View(obj);
+                AbsoluteExpirationRelativeToNow = (DateTime.Now.AddSeconds(30) - DateTime.Now)
+            };
+
+            _cache.Set("Time", Time, options);
+            return View();
         }
 
-        [HttpGet]
-        public IActionResult GetOrCreatethis()
+        [Route("AllCache/GetCacheData")]
+        public IActionResult GetCacheData()
         {
-            //return _memoryCache.GetOrCreate<string>("IDGKey", cacheEntry =>
-            //{
-            //    //return View(DateTime.Now.ToString());
-            //});
+            string Time = string.Empty;
+
+            if (!_cache.TryGetValue("Time", out Time))
+            {
+                Time = "Cache is Expired or not availabe";
+            }
+
+            ViewBag.date = Time;
             return View();
         }
     }
