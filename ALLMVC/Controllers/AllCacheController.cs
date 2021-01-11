@@ -10,8 +10,7 @@ namespace ALLMVC.Controllers
     public class AllCacheController : Controller
     {
         private readonly IMemoryCache _cache;
-        string key = "IDGKey";
-        string obj;
+        
 
         public AllCacheController(IMemoryCache Cache)
         {

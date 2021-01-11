@@ -1,0 +1,19 @@
+﻿@model ALLMVC.Models.CacheDemo
+
+@{
+    ViewData["Title"] = "ResponseCaching";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>ResponseCaching</h4>
+    <hr />
+    <dl class="row">
+        <dt>@Model.LastUpdated</dt>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.LastUpdated">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

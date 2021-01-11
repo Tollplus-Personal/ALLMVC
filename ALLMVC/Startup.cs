@@ -30,6 +30,7 @@ namespace ALLMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCaching();
             services.AddDistributedMemoryCache();  
             services.AddSession(options => {  
                 options.IdleTimeout = TimeSpan.FromSeconds(15);//You can set Time   
@@ -45,6 +46,7 @@ namespace ALLMVC
             services.AddRazorPages();
             services.AddMemoryCache();
             services.AddSingleton<IAgeCal, AgeCal>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +71,7 @@ namespace ALLMVC
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseResponseCaching();
 
             app.UseEndpoints(endpoints =>
             {
