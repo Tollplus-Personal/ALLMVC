@@ -17,6 +17,7 @@ namespace ALLMVC.Data
         public DbSet<ALLMVC.Models.Employee> Employee { get; set; }
         public DbSet<ALLMVC.Models.EmpDep> EmpDep { get; set; }
         public DbSet<ALLMVC.Models.SocialIcon> socialIcons { get; set; }
+        public DbSet<ALLMVC.Models.CacheDemo> CacheDemo { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder builder)
         //{
