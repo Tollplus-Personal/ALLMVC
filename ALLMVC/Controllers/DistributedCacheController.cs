@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ALLMVC.Data;
 using ALLMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
@@ -11,6 +12,8 @@ using Newtonsoft.Json;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
+
     public class DistributedCacheController : Controller
     {
         private readonly IDistributedCache _distributedCache;

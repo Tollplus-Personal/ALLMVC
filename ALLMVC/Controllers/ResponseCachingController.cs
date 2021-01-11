@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using ALLMVC.Data;
 using ALLMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
+
     public class ResponseCachingController : Controller
     {
         private readonly ApplicationDbContext _context;

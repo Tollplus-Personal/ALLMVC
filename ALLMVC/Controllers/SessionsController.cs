@@ -4,11 +4,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using ALLMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
+
     public class SessionsController : Controller
     {
         const string SessionName = "_Name";

@@ -9,9 +9,11 @@ using ALLMVC.Data;
 using ALLMVC.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
     public class CourseCatalogsController : Controller
     {
         private readonly ApplicationDbContext _context;

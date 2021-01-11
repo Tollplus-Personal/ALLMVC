@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
+
     public class ErrorHandlingController : Controller
     {
         private readonly ILogger<ErrorHandlingController> logger;

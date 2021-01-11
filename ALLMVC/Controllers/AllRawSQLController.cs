@@ -1,5 +1,6 @@
 ﻿using ALLMVC.Data;
 using ALLMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
     public class AllRawSQLController : Controller
     {
         private readonly ApplicationDbContext _context;

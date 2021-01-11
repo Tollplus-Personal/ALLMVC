@@ -1,4 +1,5 @@
 ﻿using ALLMVC.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -6,6 +7,7 @@ namespace ALLMVC.Controllers
 {
     public class AllViewController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {
             return View();

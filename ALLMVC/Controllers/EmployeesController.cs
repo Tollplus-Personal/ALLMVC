@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ALLMVC.Data;
 using ALLMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
+
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;

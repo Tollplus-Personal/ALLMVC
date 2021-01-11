@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ALLMVC.Controllers
 {
+    [Authorize]
     public class CookieDemoController : Controller
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
