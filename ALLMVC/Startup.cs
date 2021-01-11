@@ -46,6 +46,7 @@ namespace ALLMVC
             services.AddRazorPages();
             services.AddMemoryCache();
             services.AddSingleton<IAgeCal, AgeCal>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
